@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: .2s;
+    background-color: var(--background-1);
+    border-radius: 10px;
+
+    &:hover {
+        scale: 1.05;
+    }
 
     .image {
         width: 200px;

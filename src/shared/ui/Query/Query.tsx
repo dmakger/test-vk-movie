@@ -16,11 +16,11 @@ interface QueryProps<T>{
 
 export const Query = <T extends (object)>({title, query, slide, amount=1, className}: QueryProps<T>) => {
     return (
-        <div className={cls(className)}>
+        <div className={cls(cl.query, className)}>
             {title && 
-                <h3>{title}</h3>
+                <h3 className={cl.title}>{title}</h3>
             }
-            <Slider component={slide} slides={query.docs} isLoading={false} amount={amount} />
+            <Slider component={slide} slides={query.docs} isLoading={false} amount={amount} className={cl.content}/>
         </div>
     )
 }

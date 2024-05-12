@@ -1,0 +1,17 @@
+.query {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .title {
+        font-size: var(--fs-lg);
+        font-weight: var(--fw-bold);
+        padding-left: 10px;
+    }
+
+    .content {
+        padding-top: 15px;
+        padding-left: 10px;
+    }
+
+}
