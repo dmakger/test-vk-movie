@@ -23,6 +23,7 @@ import { IQuery } from "@/shared/model/query.model"
     externalId: IExternalId
     name?: string | null
     alternativeName?: string | null
+    enName?: string | null
     type: string
     typeNumber: string
     year: number,
@@ -36,7 +37,7 @@ import { IQuery } from "@/shared/model/query.model"
     ratingMpaa?: string | null
     ageRating?: number | null
     logo: ILogo
-    poster: IShortImage
+    poster?: IShortImage
     backdrop: IShortImage
     videos: IVideoTypes
     genres: IItemName[]

@@ -1,0 +1,24 @@
+.rating {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 7px;
+    padding: 4px 8px;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+}
+
+.low {
+    background-color: var(--red-dark);
+    color: var(--red);
+}
+
+.middle {
+    background-color: var(--yellow-dark);
+    color: var(--yellow);
+}
+
+.large {
+    background-color: var(--green-dark);
+    color: var(--green);
+}
