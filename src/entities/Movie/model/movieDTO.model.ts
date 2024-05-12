@@ -16,6 +16,7 @@ import { IYearRange } from "@/shared/model/yearRange.model"
 import { IAudience } from "@/shared/model/audience.model"
 import { INetwork } from "@/shared/model/network.model"
 import { IExternalId } from "@/shared/model/externalId.model"
+import { IQuery } from "@/shared/model/query.model"
 
  export interface IMovieDTO {
     id: number
@@ -60,4 +61,10 @@ import { IExternalId } from "@/shared/model/externalId.model"
     networks?: INetwork | null
     updatedAt?: string | null
     createdAt?: string | null
+}
+
+
+// ===={ QUERY MOVIE }====
+export interface IQueryMovieDTO extends IQuery {
+    docs: IMovieDTO[]
 }
