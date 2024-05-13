@@ -3,7 +3,7 @@ import { IQueryProps } from "../model/params.model";
 // ====={ MOVIE }=====
 export const RATING_KP__MOVIE_QUERY: IQueryProps = {
     title: 'Лучшие фильмы по мнению Кинопоиска',
-    paramsMovie: {page: 1, limit: 40, sortField: "rating.kp", sortType: "-1", type: "movie"}
+    paramsMovie: {page: 1, limit: 40, sortField: "rating.kp", sortType: "-1", type: "movie", notNullFields: "poster.url"}
 }
 
 // export const RATING_FILM_CRITICS__MOVIE_QUERY: IQueryProps = {

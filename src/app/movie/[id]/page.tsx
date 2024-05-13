@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import cl from './_MovieDetailPage.module.scss'
 import { MovieList } from "@/entities/Movie/ui/List/MovieList";
 import { TextDict } from "@/shared/ui/Text/Dict/TextDict";
+import { RATING_KP__MOVIE_QUERY } from "@/shared/data/query.data";
 
 export default function MovieDetailPage() {
     // ROUTER
@@ -35,9 +36,15 @@ export default function MovieDetailPage() {
                 </div>
                 <ImageAPI src={getImageMovie(movie.poster?.previewUrl)} className={cl.poster}/>
             </div>
-            {movie.similarMovies && (
-                <MovieList title={'Похожие фильмы'} list={movie.similarMovies} paramsMovie={{page: 1, limit: 1}} />
-            )}
+
+            <div className={cl.collections}>
+                {movie.similarMovies && movie.similarMovies.length > 0 && (
+                    <MovieList title={'Похожие фильмы'} list={movie.similarMovies} paramsMovie={{page: 1, limit: 1}} />
+                )}
+                {movie.genres && movie.genres.length > 0 && (
+                    <MovieList title={`В жанре ${movie.genres[0].name}`} paramsMovie={{...(RATING_KP__MOVIE_QUERY.paramsMovie), "genres.name": movie.genres[0].name}} />
+                )}
+            </div>
         </Wrapper1280>
     );
 }

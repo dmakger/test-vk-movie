@@ -45,12 +45,7 @@ export const Slider = <T extends (object | string)>({
         if (slidesRef.current) {
             setSlidesWidth(slidesRef.current.offsetWidth);
         }
-    }, []);
-    useEffect(() => {
-        if (slidesRef.current) {
-            setSlidesWidth(slidesRef.current.offsetWidth);
-        }
-    }, []);
+    }, [slides]);
     useEffect(() => {
         if (activeIndex !== undefined) {
             setStartIndex(activeIndex);
