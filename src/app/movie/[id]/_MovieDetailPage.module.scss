@@ -11,9 +11,19 @@
     gap: 20px;
 
     .body {
-        .name {
-            font-size: var(--fs-elg);
-            font-weight: var(--fw-bold);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .top {
+            .name {
+                font-size: var(--fs-elg);
+                font-weight: var(--fw-bold);
+            }
+            .slogan {
+                font-size: var(--fs-sm);
+                color: var(--foreground-2);
+            }
         }
         .description {
             margin-top: 10px;
@@ -22,7 +32,7 @@
         .shortInfo {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
             margin-top: 40px;
         }
     }

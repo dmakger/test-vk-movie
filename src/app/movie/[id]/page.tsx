@@ -10,6 +10,7 @@ import cl from './_MovieDetailPage.module.scss'
 import { MovieList } from "@/entities/Movie/ui/List/MovieList";
 import { TextDict } from "@/shared/ui/Text/Dict/TextDict";
 import { RATING_KP__MOVIE_QUERY } from "@/shared/data/query.data";
+import { minutesToHoursText } from "@/shared/lib/text.lib";
 
 export default function MovieDetailPage() {
     // ROUTER
@@ -28,10 +29,17 @@ export default function MovieDetailPage() {
         <Wrapper1280 classNameContent={cl.block}>
             <div className={cl.main}>
                 <div className={cl.body}>
-                    <h1 className={cl.name}>{getNameMovie(movie)}</h1>
+                    <div className={cl.top}>
+                        <h1 className={cl.name}>{getNameMovie(movie)}</h1>
+                        <span className={cl.slogan}>{movie.slogan}</span>
+                    </div>
                     <p className={cl.description}>{movie.description}</p>
                     <div className={cl.shortInfo}>
                         <TextDict title={"Возрастной ценз"} value={movie.ageRating} />
+                        {movie.movieLength &&
+                            <TextDict title={"Продолжительность фильма"} value={minutesToHoursText(movie.movieLength)} />
+                        }
+                        <TextDict title={"Жанры"} value={movie.genres.map(it => it.name).join(', ')} />
                     </div>
                 </div>
                 <ImageAPI src={getImageMovie(movie.poster?.previewUrl)} className={cl.poster}/>
