@@ -1,7 +1,7 @@
 "use client"
 
 
-import { FC, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Slider.module.scss'
@@ -22,11 +22,14 @@ export const Slider = <T extends (object | string)>({
     activeIndex, setActiveIndex=()=>{}, 
     component: SlideComponent, 
     className, classNameSlides, style, 
-    setTypeOfFile
+    setTypeOfFile, props
 }: SliderProps<T>) => {
+
+
     // STATE
     const [startIndex, setStartIndex] = useState(0);
     const [translateX, setTranslateX] = useState(0);    
+
 
     // Получение текущей ширины блока
     const [slidesWidth, setSlidesWidth] = useState(0);
@@ -34,10 +37,8 @@ export const Slider = <T extends (object | string)>({
 
     const getWidthSlide = () => {
         return slidesWidth / amount - 10
-    }
+    }    
 
-    console.log('123', startIndex, slides.length, translateX, amount, amountSlide);
-    
 
     // EFFECT
     useEffect(() => {
@@ -57,6 +58,7 @@ export const Slider = <T extends (object | string)>({
         }
     }, [activeIndex]);
 
+
     // НАВИГАЦИЯ СЛАЙДЕРА
     const nextSlide = () => {
         let newStartIndex = startIndex + 1;
@@ -75,6 +77,7 @@ export const Slider = <T extends (object | string)>({
         setActiveIndex(newIndex)
     };
 
+
     return (
         <div style={style} className={cls(cl.slider, className)} ref={slidesRef}>
             {startIndex > 0 &&
@@ -84,9 +87,9 @@ export const Slider = <T extends (object | string)>({
 
             <div className={cls(cl.slideContainer)} style={{transform: `translateX(${translateX}px)`}}>
                 {slides.map((slide, index) => (
-                    <SlideComponent slide={slide} 
-                                    setTypeOfFile={setTypeOfFile}
-                                    style={{ width: `${getWidthSlide()}px` }} 
+                    <SlideComponent slide={slide}
+                                    setTypeOfFile={setTypeOfFile} {...props}
+                                    style={{ width: `${getWidthSlide()}px`}}
                                     className={classNameSlides} key={index}/>
                 ))}
             </div>

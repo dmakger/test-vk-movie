@@ -47,7 +47,7 @@ import { IQuery } from "@/shared/model/query.model"
     seasonsInfo: ISeasonInfo[]
     fees: IFees
     premiere: IPremiere
-    similarMovies?: ILinkedMovie | null
+    similarMovies?: ILinkedMovie[] | null
     sequelsAndPrequels?: ILinkedMovie | null
     watchability?: IWatchability
     releaseYears?: IYearRange
