@@ -5,6 +5,7 @@ export interface ISlider {
     limit?: number,
     setLimit?: Function,
     amount: number,
+    amountSlide: number,
     className?: string,
     classNameSlides?: string
 }

@@ -12,21 +12,20 @@
     .nextButton {right: 5px;}
   }
 
-  .prevButton,
-  .nextButton {
+  .arrow {
     position: absolute;
     z-index: 1;
     cursor: pointer;
     top: 35%;
     border: none;
-    border-radius: 20px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background-color: var(--background-2);
+    background-color: var(--background-3);
+    border: 2px solid var(--background-3);
     transition: all .2s;
 
     &:hover {
-      background-color: var(--hover);
+      border-color: var(--primary);
     }
   }
 

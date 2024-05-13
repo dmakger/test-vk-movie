@@ -20,7 +20,7 @@ export const Query = <T extends (object)>({title, query, slide, amount=1, classN
             {title && 
                 <h3 className={cl.title}>{title}</h3>
             }
-            <Slider component={slide} slides={query.docs} isLoading={false} amount={amount} className={cl.content}/>
+            <Slider component={slide} slides={query.docs} isLoading={false} amount={1} amountSlide={6} className={cl.content}/>
         </div>
     )
 }

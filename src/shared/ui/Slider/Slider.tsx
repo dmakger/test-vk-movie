@@ -8,7 +8,7 @@ import cl from './_Slider.module.scss'
 import { ISlider, TSlide } from "../../../entities/Movie/model/slider.model";
 import { Button } from "../Button/ui/Button";
 import { Axis } from "@/shared/model/icon.model";
-import { ARROW_BLACK_PURPLE__ICON } from "@/shared/data/icon/arrow.icon.data";
+import { ARROW_WHITE_TO_PURPLE__ICON } from "@/shared/data/icon/arrow.icon.data";
 
 interface SliderProps<T> extends ISlider{
     slides?: T[];
@@ -18,7 +18,7 @@ interface SliderProps<T> extends ISlider{
 }
 
 export const Slider = <T extends (object | string)>({
-    slides=[], amount = 3, limit = 10, setLimit,
+    slides=[], amount = 3, amountSlide, limit = 10, setLimit,
     activeIndex, setActiveIndex=()=>{}, 
     component: SlideComponent, 
     className, classNameSlides, style, 
@@ -32,7 +32,12 @@ export const Slider = <T extends (object | string)>({
     const [slidesWidth, setSlidesWidth] = useState(0);
     const slidesRef = useRef<HTMLDivElement>(null);
 
-    const getWidthSlide = () => (slidesWidth / amount - 10)
+    const getWidthSlide = () => {
+        return slidesWidth / amount - 10
+    }
+
+    console.log('123', startIndex, slides.length, translateX, amount, amountSlide);
+    
 
     // EFFECT
     useEffect(() => {
@@ -73,8 +78,8 @@ export const Slider = <T extends (object | string)>({
     return (
         <div style={style} className={cls(cl.slider, className)} ref={slidesRef}>
             {startIndex > 0 &&
-                <Button arrow={ARROW_BLACK_PURPLE__ICON} arrowAxis={Axis.Left} 
-                        onClick={prevSlide} className={cl.prevButton} />
+                <Button arrow={ARROW_WHITE_TO_PURPLE__ICON} arrowAxis={Axis.Left} arrowSize={{width: 20, height: 20}}
+                        onClick={prevSlide} className={cls(cl.prevButton, cl.arrow)} />
             }
 
             <div className={cls(cl.slideContainer)} style={{transform: `translateX(${translateX}px)`}}>
@@ -86,9 +91,9 @@ export const Slider = <T extends (object | string)>({
                 ))}
             </div>
 
-            {startIndex < slides.length - amount &&
-                <Button arrow={ARROW_BLACK_PURPLE__ICON} arrowAxis={Axis.Right} 
-                        onClick={nextSlide} className={cl.nextButton} />
+            {startIndex < slides.length / amountSlide - 1 &&
+                <Button arrow={ARROW_WHITE_TO_PURPLE__ICON} arrowAxis={Axis.Right} arrowSize={{width: 20, height: 20}}
+                        onClick={nextSlide} className={cls(cl.nextButton, cl.arrow)} />
             }
         </div>
     );

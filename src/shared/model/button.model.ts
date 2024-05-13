@@ -1,10 +1,5 @@
 export enum ButtonView {
     Empty = 'empty',
-    WhiteToPrimary = 'whiteToPrimary',
-    PrimaryToOutline = 'primaryToOutline',
-    BlackTToPurpleT = 'blackTToPurpleT',
-    BlackTToPurpleTV = 'blackTToPurpleTV',
-    PrimaryOToFill = 'primaryOToFill',
 }
 
 

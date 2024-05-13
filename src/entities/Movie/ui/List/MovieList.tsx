@@ -16,7 +16,7 @@ interface MovieListProps {
     className?: string,
 }
 
-export const MovieList:FC<MovieListProps> = ({paramsMovie, ...rest}) => {
+export const MovieList:FC<MovieListProps> = ({paramsMovie, className, ...rest}) => {
     const {data: movieQuery, isLoading: isLoadingMovieQuery} = MovieAPI.useGetMoviesQuery({...paramsMovie})
 
     console.log('movieQuery', isLoadingMovieQuery, movieQuery);
@@ -25,6 +25,6 @@ export const MovieList:FC<MovieListProps> = ({paramsMovie, ...rest}) => {
         return <></>
     
     return (
-        <Query query={movieQuery} slide={SlideMovie} {...rest} />
+        <Query query={movieQuery} slide={SlideMovie} className={cls(cl.query, className)} {...rest} />
     )
 }

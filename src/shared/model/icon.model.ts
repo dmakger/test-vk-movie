@@ -27,3 +27,8 @@ export enum Axis {
     Left = "left",
     Default = "",
 }
+
+export interface IIconSize {
+    width?: number
+    height?: number
+}

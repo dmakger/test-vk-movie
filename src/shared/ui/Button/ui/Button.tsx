@@ -5,7 +5,7 @@ import { FC, ReactNode, useState } from "react"
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Button.module.scss'
 import { ButtonType, ButtonView } from "@/shared/model/button.model";
-import { Axis, IIcon, IIconProps } from "../../../model/icon.model";
+import { Axis, IIcon, IIconProps, IIconSize } from "../../../model/icon.model";
 import { ImageSmart } from "../../Image/Smart/ImageSmart";
 import Link from "next/link";
 
@@ -23,6 +23,7 @@ interface ButtonProps {
 
     arrow?: IIcon
     arrowAxis?: Axis
+    arrowSize?: IIconSize
 
     children?: ReactNode,
     disabled?: boolean
@@ -35,10 +36,10 @@ interface ButtonProps {
 }
 
 export const Button:FC<ButtonProps> = ({
-    view=ButtonView.WhiteToPrimary, type=ButtonType.Button, isActive=false, isCircle=false,
+    view=ButtonView.Empty, type=ButtonType.Button, isActive=false, isCircle=false,
     beforeImage, beforeProps,
     href, title, 
-    arrow, arrowAxis=Axis.Default, 
+    arrow, arrowAxis=Axis.Default, arrowSize, 
     children, disabled=false, className, classNameTitle,
     onClick=()=>{}, onMouseEnter=()=>{}, onMouseLeave=()=>{},
 }) => {
@@ -70,7 +71,9 @@ export const Button:FC<ButtonProps> = ({
                 <span className={cls(cl.title, classNameTitle)}>{title}</span>
             }
             {arrow &&
-                <ImageSmart icon={arrow} axis={arrowAxis} width={12} height={12} isActive={isActive} isHovered={isHovered} />
+                <ImageSmart icon={arrow} axis={arrowAxis} 
+                            width={arrowSize?.width ? arrowSize?.width : 12} height={arrowSize?.height ? arrowSize?.height : 12} 
+                            isActive={isActive} isHovered={isHovered} />
             }
             {children}
         </button>
