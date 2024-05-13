@@ -1,0 +1,47 @@
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  min-height: 80px;
+  transform: translateX(0);
+
+  &:hover {
+    .prevButton {left: 5px;}
+    .nextButton {right: 5px;}
+  }
+
+  .arrow {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    top: 35%;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-3);
+    border: 2px solid var(--background-3);
+    transition: all .2s;
+
+    &:hover {
+      border-color: var(--primary);
+    }
+  }
+
+  .prevButton {
+    left: -50px;
+    // rotate: 90deg;
+  }
+
+  .nextButton {
+    right: -50px;
+    // rotate: 270deg;
+  }
+
+  .slideContainer {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s ease-in-out;
+  }
+}

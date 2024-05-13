@@ -1,6 +1,8 @@
+import { MovieAPI } from "@/entities/Movie/api/movie.api";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
+    [MovieAPI.reducerPath]: MovieAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -10,6 +12,7 @@ export const setupStore = () => {
             getDefaultMiddleware({
                 serializableCheck: false
             }).concat(
+                MovieAPI.middleware,
             ),
     })
 }

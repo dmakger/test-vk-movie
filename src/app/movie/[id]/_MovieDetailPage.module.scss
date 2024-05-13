@@ -1,0 +1,34 @@
+.block {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: row !important;
+    gap: 20px;
+
+    .body {
+        .name {
+            font-size: var(--fs-elg);
+            font-weight: var(--fw-bold);
+        }
+        .description {
+            margin-top: 10px;
+        }
+
+        .shortInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 40px;
+        }
+    }
+
+    .poster {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+    }
+}

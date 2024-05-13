@@ -16,12 +16,14 @@ import { IYearRange } from "@/shared/model/yearRange.model"
 import { IAudience } from "@/shared/model/audience.model"
 import { INetwork } from "@/shared/model/network.model"
 import { IExternalId } from "@/shared/model/externalId.model"
+import { IQuery } from "@/shared/model/query.model"
 
  export interface IMovieDTO {
     id: number
     externalId: IExternalId
     name?: string | null
     alternativeName?: string | null
+    enName?: string | null
     type: string
     typeNumber: string
     year: number,
@@ -35,7 +37,7 @@ import { IExternalId } from "@/shared/model/externalId.model"
     ratingMpaa?: string | null
     ageRating?: number | null
     logo: ILogo
-    poster: IShortImage
+    poster?: IShortImage
     backdrop: IShortImage
     videos: IVideoTypes
     genres: IItemName[]
@@ -45,7 +47,7 @@ import { IExternalId } from "@/shared/model/externalId.model"
     seasonsInfo: ISeasonInfo[]
     fees: IFees
     premiere: IPremiere
-    similarMovies?: ILinkedMovie | null
+    similarMovies?: ILinkedMovie[] | null
     sequelsAndPrequels?: ILinkedMovie | null
     watchability?: IWatchability
     releaseYears?: IYearRange
@@ -60,4 +62,10 @@ import { IExternalId } from "@/shared/model/externalId.model"
     networks?: INetwork | null
     updatedAt?: string | null
     createdAt?: string | null
+}
+
+
+// ===={ QUERY MOVIE }====
+export interface IQueryMovieDTO extends IQuery {
+    docs: IMovieDTO[]
 }

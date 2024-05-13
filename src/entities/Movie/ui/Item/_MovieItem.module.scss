@@ -1,0 +1,39 @@
+.movie {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: .2s;
+    background-color: var(--background-1);
+    border-radius: 10px;
+
+    &:hover {
+        scale: 1.05;
+    }
+
+    .image {
+        width: 200px;
+        height: 240px;
+        object-fit: cover;    
+        border-radius: 10px;
+    }
+
+    .rating {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0 0 5px;
+
+        .name {
+            // font-size: ;
+        }
+
+        .year {
+            color: var(--foreground-3);
+        }
+    }
+}
